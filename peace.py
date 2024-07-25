@@ -9,7 +9,7 @@ intents.messages = True
 intents.guilds = True
 intents.members = True
 
-bot = commands.Bot(command_prefix="!", intents=intents)
+bot = commands.Bot(command_prefix="x", intents=intents)
 
 bad_words = ["chutiya", "lodu","fuck", "maderchod", "madarchod", "madarchoda", "madarchod", "madarchod",
     "bhenchod", "bhenchoda", "bhenchod", "bhenchod", "bsdk", "chutiya",
