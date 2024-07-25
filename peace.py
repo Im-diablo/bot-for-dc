@@ -79,7 +79,7 @@ async def leaderboard(ctx):
     leaderboard = "\n".join([f"<@{user_id}> - Level {level}" for user_id, level in sorted_users[:10]])
     await ctx.send(f"Leaderboard:\n{leaderboard}")
 
-url = 'https://drive.google.com/u/0/uc?id=16sBHE4c1UlmEKcxf1kjupzDKkSPGVgdb'
+url = 'https://drive.google.com/u/0/uc?id=1-rCeT404Do7m8Bu3cqXM6uYaniA661lB'
 output = 'token.txt'
 gdown.download(url, output, quiet=False)
 
