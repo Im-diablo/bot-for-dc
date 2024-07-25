@@ -11,7 +11,10 @@ intents.members = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-bad_words = ["chutiya", "lodu"]  # Add your bad words here
+bad_words = ["chutiya", "lodu","fuck", "maderchod", "madarchod", "madarchoda", "madarchod", "madarchod",
+    "bhenchod", "bhenchoda", "bhenchod", "bhenchod", "bsdk", "chutiya",
+    "chutiye", "chutiye", "chutiya", "betichod", "betichoda", "betichod",
+    "betichoda", "gandu", "chut", "lund"]  
 user_levels = defaultdict(int)
 user_xp = defaultdict(int)
 spam_tracker = defaultdict(list)
