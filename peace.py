@@ -48,7 +48,7 @@ async def on_message(message):
     if user_xp[message.author.id] >= 1000:
         user_xp[message.author.id] = 0
         user_levels[message.author.id] += 1
-        await message.channel.send(f"Congratulations {message.author.mention}! You've leveled up to level {user_levels[message.author.id]}!")
+        #await message.channel.send(f"Congratulations {message.author.mention}! You've leveled up to level {user_levels[message.author.id]}!")
 
     await bot.process_commands(message)
 
