@@ -81,7 +81,15 @@ async def leaderboard(ctx):
     sorted_users = sorted(user_levels.items(), key=lambda x: x[1], reverse=True)
     leaderboard = "\n".join([f"<@{user_id}> - Level {level}" for user_id, level in sorted_users[:10]])
     await ctx.send(f"Leaderboard:\n{leaderboard}")
+    
+@bot.tree.command(name="ping")
+async def ping(interaction: discord.Interaction):
+  await interaction.response.send_message(f"Hey {interaction.user.mention}! My latency is {round(bot.latency * 1000)}ms", ephemeral=True)
 
+@bot.tree.command(name="say")
+@app_commands.describe(thing_to_say = "synced")
+async def say(interaction: discord.Interaction, thing_to_say: str, to: discord.Member): 
+    await interaction.response.send_message(f"{interaction.user.mention} said: '{thing_to_say}' to {to.mention}")
 url = 'https://drive.google.com/u/0/uc?id=1F3ZGuaKN4ugYe_K1k9jLpAndTrNUvyWs'
 output = 'token.txt'
 gdown.download(url, output, quiet=False)
