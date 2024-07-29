@@ -1,4 +1,6 @@
 import discord # type: ignore
+from discord import app_commands
+from discord.ext import commands
 from discord.ext import commands, tasks # type: ignore
 from collections import defaultdict
 import re
