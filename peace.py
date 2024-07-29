@@ -24,7 +24,7 @@ spam_tracker = defaultdict(list)
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user}')
-await bot.tree.sync()
+    await bot.tree.sync()
     level_up.start()
 
 @bot.event
@@ -46,7 +46,7 @@ async def on_message(message):
         await message.delete()
         await message.channel.send(f"{message.author.mention}, please do not spam!")
         return
-    
+
     user_xp[message.author.id] += 3
     if user_xp[message.author.id] >= 1000:
         user_xp[message.author.id] = 0
@@ -81,15 +81,17 @@ async def leaderboard(ctx):
     sorted_users = sorted(user_levels.items(), key=lambda x: x[1], reverse=True)
     leaderboard = "\n".join([f"<@{user_id}> - Level {level}" for user_id, level in sorted_users[:10]])
     await ctx.send(f"Leaderboard:\n{leaderboard}")
-    
-@bot.tree.command(name="ping")
+
+@bot.tree.command(name="ping",description= "Shows the bot's latency")
 async def ping(interaction: discord.Interaction):
   await interaction.response.send_message(f"Hey {interaction.user.mention}! My latency is {round(bot.latency * 1000)}ms", ephemeral=True)
 
-@bot.tree.command(name="say")
+@bot.tree.command(name="say", description="Wanna say something??,Here is the chance!")
 @app_commands.describe(thing_to_say = "synced")
 async def say(interaction: discord.Interaction, thing_to_say: str, to: discord.Member): 
     await interaction.response.send_message(f"{interaction.user.mention} said: '{thing_to_say}' to {to.mention}")
+
+
 url = 'https://drive.google.com/u/0/uc?id=1F3ZGuaKN4ugYe_K1k9jLpAndTrNUvyWs'
 output = 'token.txt'
 gdown.download(url, output, quiet=False)
