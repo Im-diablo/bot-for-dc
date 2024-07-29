@@ -24,6 +24,7 @@ spam_tracker = defaultdict(list)
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user}')
+await bot.tree.sync()
     level_up.start()
 
 @bot.event
